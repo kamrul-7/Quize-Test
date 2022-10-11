@@ -1,11 +1,19 @@
 import React from 'react';
-
-
+import { useLoaderData } from 'react-router-dom';
+import Post from '../Post/Post';
 const Home = () => {
+    const posts = useLoaderData();
+    const post = posts.data;
     return (
         <div>
-            <img className='m-5 ' width={200} src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Sporcle_June_8_2022_Logo.png" alt="" />
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-16 m-16'>
+                {
+                    post.map(data => <Post
+                        key={data.id}
+                        data={data}></Post>)
+                }
 
+            </div>
         </div>
     );
 };
