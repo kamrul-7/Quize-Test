@@ -1,12 +1,11 @@
 import React from 'react';
 
-const Justify = () => {
+const Quiz = () => {
     return (
         <div>
-            <h3>Hellow</h3>
 
         </div>
     );
 };
 
-export default Justify;
+export default Quiz;

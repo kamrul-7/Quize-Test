@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Statistics = (data) => {
+const Statistics = ({ data }) => {
     console.log(data)
     return (
         <div>
+
         </div>
     );
 };
