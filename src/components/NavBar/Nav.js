@@ -7,7 +7,6 @@ const Nav = () => {
             <h5 className=' text-2xl'>Sporcle – A World of Quizzes</h5>
             <nav className='nav'>
                 <Link to='/'>Home</Link>
-                <Link to='./justify'>Justify</Link>
                 <Link to='/statistics'>Statistics</Link>
                 <Link to='/blogs'>Blogs</Link>
             </nav>

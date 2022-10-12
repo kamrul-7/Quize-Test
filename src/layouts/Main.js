@@ -1,13 +1,18 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { createContext } from 'react';
+import { Outlet, useLoaderData } from 'react-router-dom';
 import Nav from '../components/NavBar/Nav';
 
+
+export const dataContext = createContext([]);
+
 const Main = () => {
+    const dataValue = useLoaderData();
+    const data = dataValue.data;
     return (
-        <div>
+        <dataContext.Provider value={data}>
             <Nav></Nav>
             <Outlet></Outlet>
-        </div>
+        </dataContext.Provider>
     );
 };
 

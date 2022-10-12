@@ -6,13 +6,15 @@ import Justify from './components/Justify/Justify';
 import Statistics from './components/Statistics/Statistics';
 import Error from './components/Error/Error';
 import Main from './layouts/Main';
-import PostDetails from './components/PostDetails/PostDetails';
-
+import Quiz from './components/Quiz';
 function App() {
   const router = createBrowserRouter([
     {
       path: "/", element: <Main></Main>,
       errorElement: <Error></Error>,
+      loader: async () => {
+        return fetch(`https://openapi.programming-hero.com/api/quiz`)
+      },
       children: [
         {
           path: '/',
@@ -21,6 +23,7 @@ function App() {
           },
           element: <Home></Home>
         },
+
         {
           path: '/post/:postId',
           loader: async ({ params }) => {
@@ -36,14 +39,16 @@ function App() {
           loader: async ({ params }) => {
             return fetch(`https://openapi.programming-hero.com/api/quiz/${params.justifyId}`)
           },
-          element: <PostDetails></PostDetails>
+          element: <Quiz></Quiz>
         },
         {
-          path: '/statistics', element: <Statistics></Statistics>
+          path: '/statistics',
+          element: <Statistics></Statistics>
         },
+
         {
           path: '/blogs', element: <Blogs></Blogs>
-        }
+        },
       ]
     }
   ])
