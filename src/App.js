@@ -6,6 +6,7 @@ import Justify from './components/Justify/Justify';
 import Statistics from './components/Statistics/Statistics';
 import Error from './components/Error/Error';
 import Main from './layouts/Main';
+import PostDetails from './components/PostDetails/PostDetails';
 
 function App() {
   const router = createBrowserRouter([
@@ -29,6 +30,13 @@ function App() {
         },
         {
           path: '/justify', element: <Justify></Justify>
+        },
+        {
+          path: '/justify/:justifyId',
+          loader: async ({ params }) => {
+            return fetch(`https://openapi.programming-hero.com/api/quiz/${params.justifyId}`)
+          },
+          element: <PostDetails></PostDetails>
         },
         {
           path: '/statistics', element: <Statistics></Statistics>
